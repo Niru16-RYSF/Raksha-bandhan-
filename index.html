@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raksha Bandhan 2026 - Ultimate Sanctuary</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital,wght@0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0d0103;
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ultra 3D Dynamic Live Background */
+    .live-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      transition: background 2s ease-in-out;
+    }
+
+    .bg-light-spot {
+      position: absolute;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(255, 51, 102, 0.22) 0%, rgba(139, 0, 34, 0.08) 50%, transparent 80%);
+      border-radius: 50%;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: 1;
+      animation: pulseLight 6s ease-in-out infinite alternate;
+    }
+    @keyframes pulseLight {
+      0% { transform: translateX(-50%) scale(1); opacity: 0.7; }
+      100% { transform: translateX(-50%) scale(1.15); opacity: 1; }
+    }
+
+    /* 3D Canvas for floating stars, hearts, and flowers */
+    #particleCanvas {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .screen {
+      display: none;
+      min-height: 100vh;
+      width: 100%;
+      padding: 40px 20px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 3;
+      animation: cinematicFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .screen.active { display: flex; }
+
+    @keyframes cinematicFade {
+      from { opacity: 0; transform: scale(0.96) translateY(12px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    /* Master Lock Screen */
+    #lockScreen {
+      background: radial-gradient(circle at center, rgba(50, 7, 16, 0.92) 0%, rgba(13, 1, 3, 0.99) 100%);
+    }
+
+    .lock-card {
+      background: rgba(25, 2, 6, 0.78);
+      border: 1px solid rgba(255, 77, 121, 0.45);
+      padding: 50px 35px;
+      border-radius: 30px;
+      text-align: center;
+      backdrop-filter: blur(30px);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), inset 0 0 25px rgba(255, 77, 121, 0.12);
+      width: 100%; max-width: 440px;
+    }
+
+    .lock-card h1 {
+      font-family: 'Cinzel Decorative', serif;
+      color: #ff85a2; font-size: 2.2rem; margin-bottom: 12px;
+      text-shadow: 0 0 25px rgba(255, 133, 162, 0.6);
+    }
+    .lock-card p {
+      color: #f7ccd4; font-size: 1rem; margin-bottom: 25px;
+      font-family: 'Playfair Display', serif; font-style: italic;
+    }
+    .lock-card input {
+      width: 100%; padding: 15px 20px; border-radius: 14px;
+      border: 1px solid rgba(255, 77, 121, 0.5); background: rgba(10, 1, 3, 0.85);
+      color: #fff; font-size: 1.15rem; text-align: center; outline: none; margin-bottom: 20px; letter-spacing: 3px;
+    }
+    .action-btn {
+      width: 100%; padding: 15px; border-radius: 14px; border: none;
+      background: linear-gradient(135deg, #ff3366, #8b0022); color: #ffffff;
+      font-weight: 600; font-size: 1.1rem; cursor: pointer;
+      box-shadow: 0 10px 30px rgba(139, 0, 34, 0.7); transition: all 0.3s ease;
+    }
+    .action-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(255, 51, 102, 0.6); }
+    .error-text { color: #ff6b8b; font-size: 0.85rem; margin-top: 12px; display: none; }
+
+    /* Hub Screen */
+    #hubScreen { justify-content: flex-start; padding-top: 50px; }
+    .hub-header { text-align: center; margin-bottom: 40px; }
+    .hub-header h2 {
+      font-family: 'Cinzel Decorative', serif; font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      color: #ff85a2; text-shadow: 0 0 30px rgba(255, 133, 162, 0.6); margin-bottom: 10px;
+    }
+    .hub-header p { color: #f7ccd4; font-size: 1.1rem; font-family: 'Playfair Display', serif; font-style: italic; }
+
+    .sisters-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 26px; width: 100%; max-width: 1250px; padding-bottom: 60px;
+    }
+
+    /* No tilt effect, strictly clean hover lift */
+    .sister-hub-card {
+      background: rgba(30, 5, 10, 0.72);
+      border: 1px solid rgba(255, 77, 121, 0.38);
+      border-radius: 22px; padding: 22px 26px;
+      display: flex; align-items: center; gap: 20px; cursor: pointer;
+      backdrop-filter: blur(20px); transition: all 0.3s ease;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 77, 121, 0.08);
+    }
+    .sister-hub-card:hover {
+      transform: translateY(-5px);
+      background: rgba(45, 8, 15, 0.88); border-color: #ff85a2;
+      box-shadow: 0 22px 50px rgba(255, 51, 102, 0.4), inset 0 0 20px rgba(255, 133, 162, 0.2);
+    }
+
+    .square-photo-box {
+      width: 82px; height: 82px; min-width: 82px; border-radius: 16px;
+      background: rgba(12, 1, 3, 0.9); border: 1px dashed rgba(255, 133, 162, 0.6);
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .square-photo-box img { width: 100%; height: 100%; object-fit: cover; }
+
+    .card-info h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #fff; margin-bottom: 5px;
+    }
+    .card-info span {
+      font-size: 0.8rem; color: #ff85a2; text-transform: uppercase; letter-spacing: 2px; font-weight: 500;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85); backdrop-filter: blur(15px);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 100; opacity: 0; pointer-events: none; transition: 0.4s ease;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .modal-box {
+      background: linear-gradient(145deg, rgba(40, 7, 14, 0.92), rgba(18, 2, 5, 0.96));
+      border: 2px solid rgba(255, 51, 102, 0.6); padding: 35px; border-radius: 26px;
+      width: 90%; max-width: 400px; text-align: center;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.9); transform: scale(0.85); transition: 0.4s;
+    }
+    .modal-overlay.active .modal-box { transform: scale(1); }
+    .modal-box h3 { font-family: 'Cinzel Decorative', serif; color: #ff85a2; margin-bottom: 12px; font-size: 1.5rem; }
+    .modal-box p { font-size: 0.95rem; color: #f7ccd4; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
+    .modal-box input {
+      width: 100%; padding: 12px 15px; border-radius: 12px;
+      border: 1px solid rgba(255, 77, 121, 0.5); background: rgba(0,0,0,0.6);
+      color: #fff; font-size: 1rem; text-align: center; outline: none; margin-bottom: 15px;
+    }
+    .modal-btns { display: flex; gap: 10px; }
+    .modal-btns button { flex: 1; padding: 12px; border-radius: 12px; border: none; font-weight: 600; cursor: pointer; }
+
+    /* Detail Screen (No tilt, pure stable depth card) */
+    #detailScreen { justify-content: center; }
+    .detail-card {
+      background: rgba(22, 3, 7, 0.94);
+      border: 2px solid rgba(255, 77, 121, 0.75);
+      border-radius: 34px; padding: 50px 40px;
+      max-width: 680px; width: 100%; text-align: center;
+      backdrop-filter: blur(35px);
+      box-shadow: 0 45px 100px rgba(0, 0, 0, 0.95), 0 0 50px rgba(255, 51, 102, 0.35);
+      animation: detailFade 0.5s ease forwards;
+    }
+    @keyframes detailFade {
+      from { transform: translateY(15px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .detail-photo-box {
+      width: 130px; height: 130px; margin: 0 auto 20px;
+      border-radius: 22px; background: rgba(15, 2, 5, 0.95);
+      border: 2px solid #ff3366; overflow: hidden; box-shadow: 0 0 40px rgba(255, 51, 102, 0.5);
+    }
+    .detail-photo-box img { width: 100%; height: 100%; object-fit: cover; }
+
+    .detail-card h2 {
+      font-family: 'Cinzel Decorative', serif; color: #ff85a2; font-size: 2.2rem; margin-bottom: 18px;
+    }
+
+    .quote-box {
+      background: rgba(255, 77, 121, 0.08); border-left: 4px solid #ff3366;
+      padding: 24px; border-radius: 0 18px 18px 0; margin-bottom: 30px; text-align: left;
+    }
+    .quote-box p {
+      font-family: 'Playfair Display', serif; font-style: italic; color: #f7ccd4; font-size: 1.05rem; line-height: 1.8;
+    }
+
+    .action-row {
+      display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 15px; flex-wrap: wrap;
+    }
+    .next-btn-wrap {
+      display: flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #ff3366, #8b0022);
+      border: none; padding: 12px 30px; border-radius: 14px; color: #fff; font-weight: 600;
+      cursor: pointer; box-shadow: 0 6px 20px rgba(255, 51, 102, 0.4); transition: 0.3s;
+    }
+    .next-btn-wrap:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(255, 51, 102, 0.6); }
+    .pink-heart-icon { font-size: 1.2rem; }
+
+    /* Celebration Screen (Interface 4) */
+    #celebrationScreen {
+      justify-content: center; text-align: center;
+      background: radial-gradient(circle, #3d0714 0%, #120104 100%);
+    }
+    .celeb-card {
+      background: rgba(30, 4, 10, 0.88); border: 2px solid #ff3366;
+      padding: 50px 30px; border-radius: 35px; max-width: 650px; width: 100%;
+      box-shadow: 0 0 80px rgba(255, 51, 102, 0.5); backdrop-filter: blur(20px);
+    }
+    .celeb-card h1 {
+      font-family: 'Cinzel Decorative', serif; color: #ff85a2; font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 20px; text-shadow: 0 0 30px rgba(255, 133, 162, 0.8);
+    }
+    .celeb-card p {
+      font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #f7ccd4; font-style: italic; margin-bottom: 30px;
+    }
+    .celeb-btns {
+      display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 20px;
+    }
+    .bye-btn {
+      background: transparent; border: 1px solid rgba(255, 77, 121, 0.6);
+      color: #ff85a2; padding: 12px 28px; border-radius: 14px; font-weight: 500; cursor: pointer; transition: 0.3s;
+    }
+    .bye-btn:hover { background: rgba(255, 77, 121, 0.2); color: #fff; }
+  </style>
+</head>
+<body>
+
+  <div class="live-bg" id="liveBgContainer"></div>
+  <div class="bg-light-spot"></div>
+  <!-- 3D Star, Heart, Flower Animation Canvas -->
+  <canvas id="particleCanvas"></canvas>
+
+  <div id="lockScreen" class="screen active">
+    <div class="lock-card">
+      <h1>Raksha Bandhan</h1>
+      <p>Enter the secure master key to access the sacred family sanctuary</p>
+      <input type="password" id="masterInput" placeholder="Enter key..." autocomplete="off">
+      <button class="action-btn" onclick="verifyMasterKey()">Unlock Hub</button>
+      <div id="lockError" class="error-text">Incorrect key. Hint: use "didi"</div>
+    </div>
+  </div>
+
+  <div id="hubScreen" class="screen">
+    <div class="hub-header">
+      <h2>Raksha Bandhan 2026</h2>
+      <p>Select any name below and enter your secret password to view your tribute</p>
+    </div>
+    <div class="sisters-grid" id="sistersGrid"></div>
+  </div>
+
+  <div class="modal-overlay" id="sisterModal">
+    <div class="modal-box">
+      <h3 id="modalSisterName">Sister Verification</h3>
+      <p id="modalPrompt">Enter your secret password to unlock your page</p>
+      <input type="password" id="sisterPasswordInput" placeholder="Enter password..." autocomplete="off">
+      <div class="modal-btns">
+        <button style="background: rgba(255,255,255,0.1); color:#fff;" onclick="closeSisterModal()">Cancel</button>
+        <button style="background: linear-gradient(135deg, #ff3366, #8b0022); color:#fff;" onclick="verifySisterPassword()">Unlock</button>
+      </div>
+      <div id="modalError" class="error-text">Incorrect password! Try again.</div>
+    </div>
+  </div>
+
+  <div id="detailScreen" class="screen">
+    <div class="detail-card">
+      <div class="detail-photo-box" id="detailPhotoContainer">
+        <span style="font-size: 12px; color: #ff85a2; display: flex; align-items: center; justify-content: center; height: 100%;">Photo</span>
+      </div>
+      <h2 id="detailTitle">Sister Name</h2>
+      <div class="quote-box">
+        <p id="detailQuote">Essay goes here...</p>
+      </div>
+      <div class="action-row">
+        <button class="next-btn-wrap" onclick="triggerCelebration()">
+          <span>NEXT</span> <span class="pink-heart-icon">💖</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="celebrationScreen" class="screen">
+    <div class="celeb-card">
+      <h1 id="celebTitle">HAPPY RAKSHA BANDHAN</h1>
+      <p id="celebSubtitle">May our bond grow stronger with every passing year! ✨🌸</p>
+      <div class="celeb-btns">
+        <button class="action-btn" style="max-width: 200px;" onclick="returnToHub()">Back to Hub</button>
+        <button class="bye-btn" onclick="closeSite()">Bye</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const MASTER_KEY = "didi";
+
+    const bgPalettes = [
+      "radial-gradient(circle at 30% 30%, #3d0714 0%, #150205 70%, #080002 100%)",
+      "radial-gradient(circle at 70% 40%, #2b081f 0%, #0d0107 70%, #040002 100%)",
+      "radial-gradient(circle at 40% 60%, #360515 0%, #110104 70%, #050001 100%)",
+      "radial-gradient(circle at 50% 50%, #420412 0%, #170105 70%, #070001 100%)",
+      "radial-gradient(circle at 20% 80%, #330310 0%, #0c0103 70%, #030001 100%)"
+    ];
+
+    const sistersData = [
+      {
+        id: "deepa",
+        name: "Deepa Didi",
+        pass: "deepa",
+        quote: "Pranam Didi! 🙏🌸 Jab main peeche mudkar apne bachpan se lekar aaj tak ke safar ko dekhta hoon, toh mujhe ehsaas hota hai ki aapka hona kitna bada aashirwad hai. Main aapse umar mein kaafi chota hoon, isiliye bachpan se hi aapne mujhe ek chote bhai ki tarah har mushkil waqt mein sambhala hai, pyaar diya hai aur sahi raaste par chalna sikhaya hai. Aapki woh daant bhi mere liye kisi seekh se kam nahi thi jo aaj mujhe ek behtar insaan bana rahi hai. Aapka yeh pyaar aur yeh suraksha ka ehsaas mere liye duniya ki sabse keemti cheez hai. Is pyare se tyohar par main bas yahi dua karunga ki aapki zindagi hamesha khushiyon se bhari rahe aur aapke chehre par hamesha aisi hi pyaari muskaan bani rahe. Happy Raksha Bandhan 2026! 💖✨"
+      },
+      {
+        id: "jyoti",
+        name: "Jyoti Didi",
+        pass: "jyoti",
+        quote: "Pranam Didi! ✨💫 Aapka hona hi hamare ghar mein ek alag hi roshni aur khushi le aata hai. Main aapse umar mein kaafi chota hoon, isliye maine hamesha aapko ek guide aur protector ke roop mein dekha hai. Jab bhi main kisi cheez ko lekar pareshan hota hoon, aapki woh samjhane wali baatein aur aapka support mujhe turant hausla de deta hai. Aapne mujhe hamesha bina kisi shart ke pyaar diya hai aur meri har chhoti-chhoti khushi mein mera saath diya hai. Main khuda se bas yahi prarthna karta hoon ki aapko duniya ki saari khushiyan, sehat aur safalta mile kyunki aap is sabse zyada haqdaar hain. Wishing you an amazingly wonderful and blessed Happy Raksha Bandhan! 🌸⭐"
+      },
+      {
+        id: "punam",
+        name: "Punam Didi",
+        pass: "punam",
+        quote: "Pranam Didi! 🌸🌷 Aapka yeh shant aur mamta bhara swabhav hum sab ke liye ek bahut badi taqat hai. Main aapse kaafi chota hoon, aur bachpan se lekar aaj tak maine dekha hai ki kaise aapne hamesha sabka dhyan rakha hai bina kisi shikayat ke. Aapki woh pyaar bhari salaah aur woh apnepan ka ehsaas mere dil ke sabse kareeb hai. Chahe kitni bhi pareshani ho, aapke paas aakar saari tension khatam ho jaati hai. Main chahta hoon ki aapki yeh hansi hamesha barkraar rahe aur aapki zindagi mein kabhi kisi bhi cheez ki kami na ho. May this sacred festival bring immense joy and prosperity to your life. Happy Raksha Bandhan! 🌿💖"
+      },
+      {
+        id: "reeta",
+        name: "Reeta Didi",
+        pass: "reeta",
+        quote: "Pranam Didi! 💫🌺 Aapki yeh mehnat aur sabka dhyan rakhne ki aadat mujhe hamesha bahut inspire karti hai. Main aapse umar mein kaafi chota hoon, lekin mujhe hamesha laga hai ki aapne mujhe kitne pyaar aur dulaar se bada kiya hai. Aapki woh care aur woh apnepan wali baatein mere dil mein hamesha rahengi. Main bhagwan se dua karta hoon ki aapki zindagi ka har din nayi khushiyan aur dher saari safalta lekar aaye. Aap hamesha hasti rahein aur aabad rahein. Wishing you a very warm and joyful Happy Raksha Bandhan! 🌟🌸"
+      },
+      {
+        id: "bharti",
+        name: "Bharti Didi",
+        pass: "bharti",
+        quote: "Pranam Didi! 🌟🌸 Aapke aate hi ghar ka mahol kitna lively aur khushnuma ho jaata hai, yeh toh sabhi jante hain. Main aapse kaafi chota hoon, aur isiliye aapne mujhe hamesha apne chote bhai ki tarah pamper kiya hai aur meri har naadani ko hans kar maaf kiya hai. Aapka yeh cheerful nature aur sabko khush rakhne ka andaz be misaal hai. Main bas yahi chahunga ki aapka yeh gulabi chehra aur yeh mast maula andaz kabhi na badle. Aapko zindagi ki har woh khushi mile jo aap chahti hain. Happy Raksha Bandhan to my wonderful didi! 🌷✨💖"
+      },
+      {
+        id: "lakshmi",
+        name: "Lakshmi Didi",
+        pass: "lakshmi",
+        quote: "Pranam Didi! 👑✨ Aapka yeh unique andaz aur sabko lekar chalne ki khubi mujhe hamesha bahut pasand aayi hai. Main aapse umar mein kaafi chota hoon, par aapne mujhe hamesha ek dost aur chote bhai ki tarah barabar ka pyaar diya hai. Aapka yeh confidence aur glowing energy ghar ko aur bhi khoobsurat bana deti hai. Main is khaas tyohar par dua karta hoon ki aapke saare sapne pure hon aur aapki zindagi mein kabhi koi dukh na aaye. Have a gorgeous and blessed Happy Raksha Bandhan! 🌟🌺💫"
+      },
+      {
+        id: "madhu",
+        name: "Madhu Didi",
+        pass: "2004",
+        quote: "Madhu Didi, shabd shayad kam pad jayenge yeh batane ke liye ki aap mere dil ke kitne kareeb aur kitni khaas ho. 💐✨ Main aapse chota hoon, par aapne mujhe jo apnepan ka ehsaas karwaya hai, woh is duniya mein aur kahin nahi mil sakta. Aapki woh samajhdari, aapki woh roop, aur aapki yeh constant presence meri puri zindagi ka sabse bada sahara hai. Mere har kadam par aapka hona mujhe ek alag hi taqat deta hai. Main bhagwan se bas yahi aashirwad mangta hoon ki aapki zindagi hamesha phoolon ki tarah khilti rahe aur aapko duniya ki saari khushiyan milein. You are my absolute inspiration and my greatest blessing. Stay glorious and happy forever! Happy Raksha Bandhan! 🌹👑💖🌟"
+      },
+      {
+        id: "khushboo",
+        name: "Khushboo Didi",
+        pass: "khushboo",
+        quote: "Pranam Didi! 🌺🌷 Hum dono ki umar mein zyada fark nahi hai, main aapse bas thoda sa hi (2-3 saal) chota hoon, isiliye hamari bonding ekdum dosto jaisi aur bohot khaas hai. Humne kitni saari baatein share ki hain aur ek doosre ke saath kitna waqt bitaya hai. Aapka yeh sweet aur caring nature sabka dil jeet leta hai. Main chahta hoon ki hamara yeh dosti aur bhai-behan ka pyara rishta umar bhar aise hi bana rahe. Is Raksha Bandhan par main aapke liye dher saari khushiyan aur success ki dua karta hoon. Happy Raksha Bandhan! 🌸✨💫"
+      },
+      {
+        id: "kajal",
+        name: "Kajal Didi",
+        pass: "kajal",
+        quote: "Pranam Didi! 🌷💫 Aapke saath toh waqt kaise beet jaata hai pata hi nahi chalta kyunki hum dono ki age mein zyada gap nahi hai, main aapse bas 2 ya 3 saal hi chota hoon. Isiliye hum aapas mein har cheez khulkar share karte hain. Aapki creative baatein aur aapka energetic nature mujhe hamesha motivate karta hai. Main is pyare tyohar par aapko dher saara pyaar bhejta hoon aur dua karta hoon ki aapki har wish puri ho. Have a fantastic and happy Raksha Bandhan! 🌻🌟💖"
+      },
+      {
+        id: "kalpana",
+        name: "Kalpana",
+        pass: "kalpana",
+        quote: "Hey Kalpana! 🌻✨ Humara rishta bada hi pyaara hai kyunki main aapse thoda sa bada hoon, aur maine hamesha aapko ek choti behen ki tarah protect karne ki koshish ki hai. Aapka sharp mind aur aage badhne ka jazba mujhe bahut proud feel karwata hai. Aap apni zindagi mein bohot aage jao, yahi meri sabse badi khwahish hai. Is Raksha Bandhan par main aapko dher saari khushiyan aur aashirwad deta hoon. Khub tarakki karo aur haste raho! Happy Raksha Bandhan! 🌻✨💫"
+      },
+      {
+        id: "rani",
+        name: "Rani",
+        pass: "rani",
+        quote: "Hey Rani! 🌹👑 Main aapse thoda bada hoon, aur aapki yeh pyaari si hansi aur royal charm ghar mein ek alag hi jaan daal deti hai. Ek bade bhai hone ke naate, main hamesha chahta hoon ki aapki zindagi ki har raah aasaan ho aur aapko kabhi koi pareshani na ho. Aap hamesha aise hi khilti rahein aur apne sapne pure karein. Is Raksha Bandhan par mere paas aapke liye dher saari pyaar aur dulaar hai. Happy Raksha Bandhan, stay blessed always! 🌹👑🌟"
+      }
+    ];
+
+    let currentActiveSister = null;
+
+    function verifyMasterKey() {
+      const input = document.getElementById('masterInput').value.trim().toLowerCase();
+      const errorEl = document.getElementById('lockError');
+
+      if (input === MASTER_KEY) {
+        document.getElementById('lockScreen').classList.remove('active');
+        document.getElementById('hubScreen').classList.add('active');
+        renderHubGrid();
+      } else {
+        errorEl.style.display = 'block';
+        document.getElementById('masterInput').value = '';
+        document.getElementById('masterInput').focus();
+      }
+    }
+
+    function renderHubGrid() {
+      const grid = document.getElementById('sistersGrid');
+      grid.innerHTML = '';
+
+      sistersData.forEach(sister => {
+        const card = document.createElement('div');
+        card.className = 'sister-hub-card';
+        card.onclick = () => promptSisterPassword(sister);
+
+        let imageContent = `<span style="font-size: 10px; color: #ff85a2; text-align:center; font-family: 'Montserrat', sans-serif;">Add Pic</span>`;
+        if (sister.img) {
+          imageContent = `<img src="${sister.img}" alt="${sister.name}">`;
+        }
+
+        card.innerHTML = `
+          <div class="square-photo-box">${imageContent}</div>
+          <div class="card-info">
+            <h3>${sister.name}</h3>
+            <span>Secure Access ✨</span>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function promptSisterPassword(sister) {
+      currentActiveSister = sister;
+      document.getElementById('modalSisterName').innerText = sister.name;
+      document.getElementById('sisterPasswordInput').value = '';
+      document.getElementById('modalError').style.display = 'none';
+      document.getElementById('sisterModal').classList.add('active');
+      document.getElementById('sisterPasswordInput').focus();
+    }
+
+    function closeSisterModal() {
+      document.getElementById('sisterModal').classList.remove('active');
+      currentActiveSister = null;
+    }
+
+    function verifySisterPassword() {
+      const input = document.getElementById('sisterPasswordInput').value.trim().toLowerCase();
+      const errorEl = document.getElementById('modalError');
+
+      if (currentActiveSister && input === currentActiveSister.pass) {
+        closeSisterModal();
+        openDetailScreen(currentActiveSister);
+      } else {
+        errorEl.style.display = 'block';
+        document.getElementById('sisterPasswordInput').value = '';
+        document.getElementById('sisterPasswordInput').focus();
+      }
+    }
+
+    function openDetailScreen(sister) {
+      document.getElementById('hubScreen').classList.remove('active');
+      document.getElementById('detailScreen').classList.add('active');
+
+      const randomBg = bgPalettes[Math.floor(Math.random() * bgPalettes.length)];
+      document.getElementById('liveBgContainer').style.background = randomBg;
+
+      document.getElementById('detailTitle').innerText = sister.name;
+      document.getElementById('detailQuote').innerText = sister.quote;
+
+      const photoBox = document.getElementById('detailPhotoContainer');
+      if (sister.img) {
+        photoBox.innerHTML = `<img src="${sister.img}" alt="${sister.name}">`;
+      } else {
+        photoBox.innerHTML = `<span style="font-size: 11px; color: #ff85a2; display: flex; align-items: center; justify-content: center; height: 100%; font-family: 'Montserrat', sans-serif;">Photo</span>`;
+      }
+    }
+
+    function triggerCelebration() {
+      if (!currentActiveSister) return;
+      document.getElementById('detailScreen').classList.remove('active');
+      document.getElementById('celebrationScreen').classList.add('active');
+
+      let displayName = currentActiveSister.name;
+      document.getElementById('celebTitle').innerText = `HAPPY RAKSHA BANDHAN, ${displayName.toUpperCase()}!`;
+      document.getElementById('celebSubtitle').innerText = `A special dedication just for you! ✨🌸🌷🌻`;
+
+      launchFlowerShower();
+    }
+
+    function returnToHub() {
+      document.getElementById('celebrationScreen').classList.remove('active');
+      document.getElementById('hubScreen').classList.add('active');
+    }
+
+    function closeSite() {
+      window.close();
+      window.location.href = "about:blank";
+    }
+
+    document.getElementById('masterInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') verifyMasterKey();
+    });
+
+    document.getElementById('sisterPasswordInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') verifySisterPassword();
+    });
+
+    // Advanced 3D Star, Heart, Flower Flow Animation
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let showerMode = false;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Generate rich floating elements (stars, hearts, flowers) simulating 3D depth using varied sizes and speeds
+    for (let i = 0; i < 55; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height + canvas.height,
+        size: Math.random() * 3.5 + 1,
+        speedY: Math.random() * 0.9 + 0.3,
+        speedX: (Math.random() - 0.5) * 0.4, // Slight 3D drift side to side
+        opacity: Math.random() * 0.6 + 0.2,
+        char: ['❤️', '✨', '⭐', '🌸', '🌼', '🌷'][Math.floor(Math.random() * 6)]
+      });
+    }
+
+    function launchFlowerShower() {
+      showerMode = true;
+      for (let i = 0; i < 80; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: -20 - Math.random() * 200,
+          size: Math.random() * 4.5 + 2,
+          speedY: Math.random() * 3.5 + 1.5,
+          speedX: (Math.random() - 0.5) * 1,
+          opacity: 0.95,
+          char: ['🌼', '🌸', '🌻', '⭐', '✨', '💐', '🌷', '❤️'][Math.floor(Math.random() * 8)]
+        });
+      }
+      setTimeout(() => { showerMode = false; }, 6000);
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach((p, index) => {
+        ctx.globalAlpha = p.opacity;
+        ctx.font = `${p.size * 6}px sans-serif`;
+        ctx.fillText(p.char, p.x, p.y);
+
+        p.x += p.speedX;
+
+        if (showerMode) {
+          p.y += p.speedY; // Falling heavy flower and star shower
+          if (p.y > canvas.height + 40) {
+            particles.splice(index, 1);
+          }
+        } else {
+          p.y -= p.speedY; // Floating upwards into 3D space
+          if (p.y < -40) {
+            p.y = canvas.height + 40;
+            p.x = Math.random() * canvas.width;
+          }
+        }
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+  </script>
+</body>
+</html>
+
