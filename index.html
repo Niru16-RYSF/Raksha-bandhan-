@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raksha Bandhan 2026 - Sacred Sisters Sanctuary</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital,wght@0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0d0103 0%, #24050b 50%, #120104 100%);
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Floating Background Glow Orbs */
+    .bg-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      z-index: 0;
+      opacity: 0.2;
+      pointer-events: none;
+      animation: floatOrbs 12s ease-in-out infinite alternate;
+    }
+    .orb-1 { top: -150px; left: -150px; width: 450px; height: 450px; background: #ff3366; }
+    .orb-2 { bottom: -150px; right: -150px; width: 500px; height: 500px; background: #8b0022; animation-delay: -6s; }
+
+    @keyframes floatOrbs {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(40px) scale(1.15); }
+    }
+
+    /* Canvas for Floating Upward Hearts & Sparkles */
+    #particleCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .screen {
+      display: none;
+      min-height: 100vh;
+      width: 100%;
+      padding: 30px 20px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      animation: cinematicFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .screen.active {
+      display: flex;
+    }
+
+    @keyframes cinematicFade {
+      from { opacity: 0; transform: scale(0.95) translateY(15px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    /* Master Lock Screen */
+    #lockScreen {
+      background: radial-gradient(circle at center, rgba(50, 7, 16, 0.9) 0%, rgba(15, 2, 5, 0.98) 100%);
+    }
+
+    .lock-card {
+      background: rgba(25, 2, 6, 0.85);
+      border: 2px solid rgba(255, 77, 121, 0.6);
+      padding: 45px 35px;
+      border-radius: 28px;
+      text-align: center;
+      backdrop-filter: blur(25px);
+      box-shadow: 0 25px 60px rgba(255, 51, 102, 0.3);
+      width: 100%;
+      max-width: 440px;
+    }
+
+    .lock-card h1 {
+      font-family: 'Cinzel Decorative', serif;
+      color: #ff85a2;
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      text-shadow: 0 0 20px rgba(255, 133, 162, 0.6);
+    }
+
+    .lock-card p {
+      color: #f7ccd4;
+      font-size: 1rem;
+      margin-bottom: 25px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+    }
+
+    .lock-card input {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 77, 121, 0.6);
+      background: rgba(10, 1, 3, 0.9);
+      color: #fff;
+      font-size: 1.15rem;
+      text-align: center;
+      outline: none;
+      margin-bottom: 20px;
+      letter-spacing: 3px;
+    }
+
+    .action-btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      border: none;
+      background: linear-gradient(135deg, #ff3366, #8b0022);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(139, 0, 34, 0.6);
+      transition: 0.3s;
+    }
+    .action-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(255, 51, 102, 0.5); }
+
+    .error-text { color: #ff6b8b; font-size: 0.85rem; margin-top: 12px; display: none; }
+
+    /* Hub Screen */
+    #hubScreen { justify-content: flex-start; padding-top: 40px; }
+    .hub-header { text-align: center; margin-bottom: 40px; }
+    .hub-header h2 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      color: #ff85a2;
+      text-shadow: 0 0 25px rgba(255, 133, 162, 0.5);
+      margin-bottom: 10px;
+    }
+    .hub-header p { color: #f7ccd4; font-size: 1.1rem; font-family: 'Playfair Display', serif; font-style: italic; }
+
+    .sisters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 26px;
+      width: 100%;
+      max-width: 1250px;
+      padding-bottom: 60px;
+    }
+
+    /* Slightly increased size for the name boxes */
+    .sister-hub-card {
+      background: rgba(35, 6, 12, 0.8);
+      border: 1px solid rgba(255, 77, 121, 0.4);
+      border-radius: 22px;
+      padding: 22px 26px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      cursor: pointer;
+      backdrop-filter: blur(15px);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    }
+    .sister-hub-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      background: rgba(55, 10, 20, 0.95);
+      border-color: #ff85a2;
+      box-shadow: 0 22px 50px rgba(255, 51, 102, 0.4);
+    }
+
+    .square-photo-box {
+      width: 80px;
+      height: 80px;
+      min-width: 80px;
+      border-radius: 16px;
+      background: rgba(17, 1, 3, 0.9);
+      border: 1px dashed rgba(255, 133, 162, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .square-photo-box img { width: 100%; height: 100%; object-fit: cover; }
+
+    .card-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+    .card-info span {
+      font-size: 0.8rem;
+      color: #ff85a2;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+    }
+
+    /* Individual Password Verification Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 100; opacity: 0; pointer-events: none; transition: 0.3s;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .modal-box {
+      background: linear-gradient(145deg, #350d12, #1c0508);
+      border: 2px solid #ff3366;
+      padding: 35px; border-radius: 24px;
+      width: 90%; max-width: 400px; text-align: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.9);
+      transform: scale(0.8); transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .modal-overlay.active .modal-box { transform: scale(1); }
+    .modal-box h3 { font-family: 'Cinzel Decorative', serif; color: #ff85a2; margin-bottom: 12px; font-size: 1.5rem; }
+    .modal-box p { font-size: 0.95rem; color: #f7ccd4; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
+    .modal-box input {
+      width: 100%; padding: 12px 15px; border-radius: 12px;
+      border: 1px solid rgba(255, 77, 121, 0.5); background: rgba(0,0,0,0.5);
+      color: #fff; font-size: 1rem; text-align: center; outline: none; margin-bottom: 15px;
+    }
+    .modal-btns { display: flex; gap: 10px; }
+    .modal-btns button { flex: 1; padding: 10px; border-radius: 10px; border: none; font-weight: 600; cursor: pointer; }
+
+    /* Dynamic Detail Screen with unique next-level 3D animations */
+    #detailScreen { justify-content: center; }
+    .detail-card {
+      background: rgba(25, 2, 6, 0.95);
+      border: 2px solid rgba(255, 77, 121, 0.8);
+      border-radius: 32px;
+      padding: 50px 40px;
+      max-width: 650px;
+      width: 100%;
+      text-align: center;
+      backdrop-filter: blur(30px);
+      box-shadow: 0 40px 90px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 51, 102, 0.3);
+      animation: detail3DAnim 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform-style: preserve-3d;
+      perspective: 1200px;
+    }
+    @keyframes detail3DAnim {
+      from { transform: rotateX(15deg) scale(0.85); opacity: 0; }
+      to { transform: rotateX(0deg) scale(1); opacity: 1; }
+    }
+
+    .detail-photo-box {
+      width: 130px; height: 130px; margin: 0 auto 24px;
+      border-radius: 22px; background: rgba(21, 2, 5, 0.95);
+      border: 2px solid #ff3366; overflow: hidden;
+      box-shadow: 0 0 35px rgba(255, 51, 102, 0.5);
+      transition: transform 0.5s ease;
+    }
+    .detail-photo-box:hover { transform: rotateY(10deg) scale(1.05); }
+    .detail-photo-box img { width: 100%; height: 100%; object-fit: cover; }
+
+    .detail-card h2 {
+      font-family: 'Cinzel Decorative', serif;
+      color: #ff85a2; font-size: 2.3rem; margin-bottom: 22px;
+      text-shadow: 0 0 20px rgba(255, 133, 162, 0.5);
+    }
+
+    .quote-box {
+      background: rgba(255, 77, 121, 0.08);
+      border-left: 4px solid #ff3366;
+      padding: 26px; border-radius: 0 16px 16px 0;
+      margin-bottom: 35px; text-align: left;
+    }
+    .quote-box p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; color: #f7ccd4; font-size: 1.12rem; line-height: 1.85;
+    }
+
+    .back-btn {
+      background: transparent; border: 1px solid rgba(255, 77, 121, 0.7);
+      color: #ff85a2; padding: 12px 32px; border-radius: 14px;
+      font-weight: 500; font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1px; cursor: pointer; transition: 0.3s;
+    }
+    .back-btn:hover { background: rgba(255, 77, 121, 0.25); border-color: #ff85a2; color: #fff; transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+
+  <!-- Background Orbs & Floating Particle Canvas -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Master Lock Screen -->
+  <div id="lockScreen" class="screen active">
+    <div class="lock-card">
+      <h1>Raksha Bandhan</h1>
+      <p>Enter the secure master key to access the sacred family sanctuary</p>
+      <input type="password" id="masterInput" placeholder="Enter key..." autocomplete="off">
+      <button class="action-btn" onclick="verifyMasterKey()">Unlock Hub</button>
+      <div id="lockError" class="error-text">Incorrect key. Hint: use "didi"</div>
+    </div>
+  </div>
+
+  <!-- Sisters Hub Index (Madhu Didi at position #7) -->
+  <div id="hubScreen" class="screen">
+    <div class="hub-header">
+      <h2>Raksha Bandhan 2026</h2>
+      <p>Select any name below and enter your secret key to view your tribute</p>
+    </div>
+    <div class="sisters-grid" id="sistersGrid"></div>
+  </div>
+
+  <!-- Individual Password Modal -->
+  <div class="modal-overlay" id="sisterModal">
+    <div class="modal-box">
+      <h3 id="modalSisterName">Sister Verification</h3>
+      <p id="modalPrompt">Enter your secret password to unlock your page</p>
+      <input type="password" id="sisterPasswordInput" placeholder="Enter password..." autocomplete="off">
+      <div class="modal-btns">
+        <button style="background: rgba(255,255,255,0.1); color:#fff;" onclick="closeSisterModal()">Cancel</button>
+        <button style="background: linear-gradient(135deg, #ff3366, #8b0022); color:#fff;" onclick="verifySisterPassword()">Unlock</button>
+      </div>
+      <div id="modalError" class="error-text">Incorrect password! Try again.</div>
+    </div>
+  </div>
+
+  <!-- Individual Sister Detail Display -->
+  <div id="detailScreen" class="screen">
+    <div class="detail-card" id="detailCardTheme">
+      <div class="detail-photo-box" id="detailPhotoContainer">
+        <span style="font-size: 12px; color: #ff85a2; display: flex; align-items: center; justify-content: center; height: 100%;">Photo</span>
+      </div>
+      <h2 id="detailTitle">Sister Name</h2>
+      <div class="quote-box" id="detailQuoteBox">
+        <p id="detailQuote">Essay goes here...</p>
+      </div>
+      <button class="back-btn" onclick="goBackToHub()">← Return to Hub</button>
+    </div>
+  </div>
+
+  <script>
+    const MASTER_KEY = "didi";
+
+    // Sisters array with Madhu Didi at original position #7.
+    // Passwords are name lowercase, except Madhu Didi which is "2004".
+    const sistersData = [
+      {
+        id: "deepa",
+        name: "Deepa Didi",
+        pass: "deepa",
+        theme: "radial-gradient(circle at top, #3a0612 0%, #100103 100%)",
+        quote: "Pranam Didi! 🌸✨ As I sit down to reflect on the immense grace and beauty you bring into our lives, my heart overflows with profound gratitude. Deepa Didi, your comforting wisdom acts as an unbreakable anchor through every single storm and sunny day alike. Whenever uncertainties arise, your balanced perspective and gentle guidance illuminate the path forward with absolute clarity. You possess a rare, nurturing spirit that effortlessly brings comfort, healing, and joy to everyone fortunate enough to share space with you. Your unyielding strength and quiet resilience teach us daily what true grace looks like in action. May this Raksha Bandhan shower your life with boundless peace, radiant health, and endless moments of pure fulfillment. 💖🌿 Your presence is a cherished blessing that makes our family complete and harmonious. Thank you for always standing tall, guarding our happiness, and showering us with such sweet, enduring care. Stay wonderfully bright, beautiful, and blessed always! 🌸✨🌟"
+      },
+      {
+        id: "jyoti",
+        name: "Jyoti Didi",
+        pass: "jyoti",
+        theme: "radial-gradient(circle at top, #2d081f 0%, #0d0107 100%)",
+        quote: "Pranam Didi! ✨💫 In the grand canvas of our family, you are the radiant spark that turns ordinary moments into shimmering celebrations. Jyoti Didi, your boundless energy and infectious enthusiasm breathe vibrant life into every gathering. Whenever shadows try to creep in, your radiant optimism acts like a beacon of warm light, effortlessly clearing away the gloom. Beyond your cheerful laughter lies a remarkably deep wisdom and an intensely supportive heart that notices when anyone needs a helping hand. Your ambition, dedication, and lively spirit inspire all of us to aim higher and dream fearlessly. May this sacred festival fill your days with shimmering milestones, overflowing happiness, and uninterrupted prosperity. 🌺⭐ Thank you for filling our shared journey with such vibrant colors, unforgettable cheer, and constant motivation. You are a priceless gem in our lives, and your radiant light continues to guide and uplift us through every single step forward! ✨💫🌸"
+      },
+      {
+        id: "punam",
+        name: "Punam Didi",
+        pass: "punam",
+        theme: "radial-gradient(circle at top, #360515 0%, #110104 100%)",
+        quote: "Pranam Didi! 🌸🌷 There is a quiet, profound grace in your demeanor that brings immediate peace to everyone around you. Punam Didi, your gentle nature combined with an unshakeable inner strength creates a safe haven of trust and emotional balance in our home. Through every changing season, your steady support has remained a constant pillar we can always lean upon without hesitation. Your thoughtful insights and compassionate heart ensure that harmony is always maintained, binding our family closer together with invisible threads of absolute devotion. May the divine forces bless you with abundant grace, tranquil days, and continuous success in everything you pursue. 🌿✨ Thank you for being such a wonderful source of quiet courage and tender care. Your presence is a calming balm to the soul, and we are eternally grateful for the beautiful warmth you effortlessly radiate every single day! 🌷🌸💫"
+      },
+      {
+        id: "reeta",
+        name: "Reeta Didi",
+        pass: "reeta",
+        theme: "radial-gradient(circle at top, #330310 0%, #0c0103 100%)",
+        quote: "Pranam Didi! 💫🌺 The infinite patience and genuine dedication you exhibit in everything you do is something that continually inspires deep admiration within me. Reeta Didi, you possess a remarkable heart that pours care, kindness, and meticulous attention into looking out for everyone around you. Your quiet perseverance through life's challenges shows a magnificent strength of character that words can scarcely capture. Whenever things get complicated, your sensible approach and calm demeanor restore balance instantly. May this auspicious occasion wrap your world in cozy warmth, flourishing joy, and extraordinary achievements. 🌟💖 Thank you for being a steadfast guardian of our collective happiness and for carrying out your roles with such admirable grace and sincerity. Your sweet spirit and dedicated soul make our family bond infinitely stronger and infinitely more beautiful! 💫🌺✨"
+      },
+      {
+        id: "bharti",
+        name: "Bharti Didi",
+        pass: "bharti",
+        theme: "radial-gradient(circle at top, #3d0714 0%, #120104 100%)",
+        quote: "Pranam Didi! 🌟🌸 Your bright, cheerful disposition turns even the simplest days into vibrant festivities filled with laughter and joy. Bharti Didi, you have an incredible gift for making people feel special, valued, and instantly welcome in your presence. Your helpful spirit and eager willingness to assist others reflect a golden heart filled with pure compassion. Whenever you are around, the atmosphere instantly fills with lighthearted energy and positivity. May your life blossom continuously with vibrant colors, wonderful successes, and boundless happiness. 🌷✨ Thank you for filling our household with such sparkling cheer, endless enthusiasm, and sweet moments of shared delight. You are an absolute treasure, and your joyful presence makes every single family memory so much brighter and more cherished! 🌟🌸💖"
+      },
+      {
+        id: "lakshmi",
+        name: "Lakshmi",
+        pass: "lakshmi",
+        theme: "radial-gradient(circle at top, #310411 0%, #0d0103 100%)",
+        quote: "Hello Lakshmi! 👑✨ Your vibrant energy, unique perspective, and wonderful elegance add a brilliant spark to our entire family dynamic. There is a distinct charm in the way you approach life, full of fresh ideas, creative ambition, and an inspiring zest for growth. Your capability to light up a room with your individual flair and dynamic presence is truly remarkable. As we celebrate Raksha Bandhan, I want to remind you how much your unique voice and personality enrich our shared experiences. May your path ahead be paved with sparkling achievements, grand opportunities, and endless inner peace. 🌟🌺 Thank you for being such a wonderful, dynamic presence in our lives and for bringing your special kind of grace to everything you do. Stay fierce, focused, and brilliantly happy always! 👑✨💫"
+      },
+      {
+        id: "madhu",
+        name: "Madhu Didi",
+        pass: "2004",
+        theme: "radial-gradient(circle at top, #4a0518 0%, #180106 100%)",
+        quote: "Madhu Didi, words feel almost too small to capture the extraordinary, peerless place you hold within my heart. 💐✨ From the very depths of my soul, your guidance, elegance, and steady presence have been the defining lighthouse of my life's journey. You carry an unmatched grace, a brilliant intellect, and a profound emotional depth that effortlessly holds our entire world together. Every single milestone, memory, and triumph feels infinitely more meaningful simply because you are part of it. Your silent sacrifices, unwavering belief, and magnificent wisdom have shaped me in ways I can never fully repay. May the universe conspire to shower you with every single dream fulfilled, absolute peace, and boundless, everlasting joy. 🌹👑 You are my absolute inspiration, my greatest confidante, and a soul whose warmth is completely irreplaceable. Thank you for being the very heartbeat of our family's happiness. Stay glorious, protected, and endlessly cherished today and forevermore! 💐✨💖🌟"
+      },
+      {
+        id: "khushboo",
+        name: "Khushboo Didi",
+        pass: "khushboo",
+        theme: "radial-gradient(circle at top, #2e0410 0%, #0b0103 100%)",
+        quote: "Pranam Didi! 🌺🌷 Like a sweet fragrance that lingers softly in the air, your thoughtful words and gentle disposition leave a deeply soothing mark on everyone. Khushboo Didi, your innate kindness and considerate nature make you someone who naturally brings harmony and gentle grace to our family. Whenever you share your thoughts, there is an underlying depth of care and emotional intelligence that makes everyone feel truly heard and understood. May this festive season bring immense sweetness, prosperity, and radiant joy directly to your doorstep. 🌸✨ Thank you for always being such a graceful, sweet-tempered, and supportive presence in our lives. Your beautiful soul adds a tender, calming fragrance to our family bond that we treasure beyond words! 🌺🌷💫"
+      },
+      {
+        id: "kajal",
+        name: "Kajal Didi",
+        pass: "kajal",
+        theme: "radial-gradient(circle at top, #380613 0%, #110104 100%)",
+        quote: "Pranam Didi! 🌷💫 Your creative mind, sharp intellect, and energetic presence always keep our lives vibrant and exciting. Kajal Didi, you possess a unique blend of imaginative spirit and determined focus that drives you toward excellence in everything you touch. Your willingness to look at the world differently brings fresh insights and lively discussions into our home. Whenever challenges arise, your sharp problem-solving abilities and spirited attitude help clear the path. May your future unfold with magnificent creative triumphs, joyful adventures, and steady peace of mind. 🌻🌟 Thank you for keeping our family dynamic so lively, inspiring, and full of engaging energy. Your wonderful presence is a massive blessing, and I appreciate you more than words can say! 🌷💫💖"
+      },
+      {
+        id: "kalpana",
+        name: "Kalpana",
+        pass: "kalpana",
+        theme: "radial-gradient(circle at top, #320510 0%, #0c0103 100%)",
+        quote: "Hello Kalpana! 🌻✨ With your sharp analytical mind, ambitious dreams, and deeply caring heart, you possess an inspiring potential that makes us all immensely proud. There is a wonderful clarity in how you view your goals, coupled with a genuine kindness that keeps you grounded in your values. Your capability to balance hard work with a warm, supportive disposition is truly admirable. As we celebrate this special bond, I wish you incredible milestones, continuous learning, and boundless success in your educational and life pursuits. 🌟💛 Thank you for being such an intelligent, driven, and loving member of our family. May your ambitions soar high, and may every single dream you nurture turn into magnificent reality! 🌻✨💫"
+      },
+      {
+        id: "rani",
+        name: "Rani",
+        pass: "rani",
+        theme: "radial-gradient(circle at top, #3d0615 0%, #120104 100%)",
+        quote: "Hello Rani! 🌹👑 Your cheerful attitude, natural elegance, and royal charm bring an unmistakable grace to our family bond. There is an uplifting brightness in your laughter and an innate confidence in your stride that makes every celebration feel grander and more lively. Your joyful spirit acts like a magnet for good vibes, making those around you smile effortlessly. May this Raksha Bandhan fill your heart with sparkling achievements, gorgeous moments, and everlasting happiness. ✨💖 Thank you for bringing your unique royal flair, bright optimism, and wonderful warmth into our lives. Stay fabulous, shining, and deeply loved always! 🌹👑🌟"
+      }
+    ];
+
+    let currentActiveSister = null;
+
+    function verifyMasterKey() {
+      const input = document.getElementById('masterInput').value.trim().toLowerCase();
+      const errorEl = document.getElementById('lockError');
+
+      if (input === MASTER_KEY) {
+        document.getElementById('lockScreen').classList.remove('active');
+        document.getElementById('hubScreen').classList.add('active');
+        renderHubGrid();
+      } else {
+        errorEl.style.display = 'block';
+        document.getElementById('masterInput').value = '';
+        document.getElementById('masterInput').focus();
+      }
+    }
+
+    function renderHubGrid() {
+      const grid = document.getElementById('sistersGrid');
+      grid.innerHTML = '';
+
+      sistersData.forEach(sister => {
+        const card = document.createElement('div');
+        card.className = 'sister-hub-card';
+        card.onclick = () => promptSisterPassword(sister);
+
+        let imageContent = `<span style="font-size: 10px; color: #ff85a2; text-align:center; font-family: 'Montserrat', sans-serif;">Add Pic</span>`;
+        if (sister.img) {
+          imageContent = `<img src="${sister.img}" alt="${sister.name}">`;
+        }
+
+        card.innerHTML = `
+          <div class="square-photo-box">${imageContent}</div>
+          <div class="card-info">
+            <h3>${sister.name}</h3>
+            <span>Secure Access ✨</span>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function promptSisterPassword(sister) {
+      currentActiveSister = sister;
+      document.getElementById('modalSisterName').innerText = sister.name;
+      document.getElementById('sisterPasswordInput').value = '';
+      document.getElementById('modalError').style.display = 'none';
+      document.getElementById('sisterModal').classList.add('active');
+      document.getElementById('sisterPasswordInput').focus();
+    }
+
+    function closeSisterModal() {
+      document.getElementById('sisterModal').classList.remove('active');
+      currentActiveSister = null;
+    }
+
+    function verifySisterPassword() {
+      const input = document.getElementById('sisterPasswordInput').value.trim().toLowerCase();
+      const errorEl = document.getElementById('modalError');
+
+      if (currentActiveSister && input === currentActiveSister.pass) {
+        closeSisterModal();
+        openDetailScreen(currentActiveSister);
+      } else {
+        errorEl.style.display = 'block';
+        document.getElementById('sisterPasswordInput').value = '';
+        document.getElementById('sisterPasswordInput').focus();
+      }
+    }
+
+    function openDetailScreen(sister) {
+      document.getElementById('hubScreen').classList.remove('active');
+      document.getElementById('detailScreen').classList.add('active');
+
+      // Apply unique next-level background theme per sister
+      document.getElementById('detailCardTheme').style.background = sister.theme;
+
+      document.getElementById('detailTitle').innerText = sister.name;
+      document.getElementById('detailQuote').innerText = `"${sister.quote}"`;
+
+      const photoBox = document.getElementById('detailPhotoContainer');
+      if (sister.img) {
+        photoBox.innerHTML = `<img src="${sister.img}" alt="${sister.name}">`;
+      } else {
+        photoBox.innerHTML = `<span style="font-size: 11px; color: #ff85a2; display: flex; align-items: center; justify-content: center; height: 100%; font-family: 'Montserrat', sans-serif;">Photo</span>`;
+      }
+    }
+
+    function goBackToHub() {
+      document.getElementById('detailScreen').classList.remove('active');
+      document.getElementById('hubScreen').classList.add('active');
+    }
+
+    document.getElementById('masterInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') verifyMasterKey();
+    });
+
+    document.getElementById('sisterPasswordInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') verifySisterPassword();
+    });
+
+    // Floating Upward Hearts & Sparkles Animation Canvas
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    for (let i = 0; i < 40; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height + canvas.height,
+        size: Math.random() * 3 + 1,
+        speedY: Math.random() * 0.8 + 0.3,
+        opacity: Math.random() * 0.6 + 0.2,
+        char: Math.random() > 0.5 ? '❤️' : '✨'
+      });
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach(p => {
+        ctx.globalAlpha = p.opacity;
+        ctx.font = `${p.size * 5}px sans-serif`;
+        ctx.fillText(p.char, p.x, p.y);
+
+        p.y -= p.speedY;
+        if (p.y < -20) {
+          p.y = canvas.height + 20;
+          p.x = Math.random() * canvas.width;
+        }
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+  </script>
+</body>
+</html>
