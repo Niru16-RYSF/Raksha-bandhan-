@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raksha Bandhan 2026 - Quantum Neural Sanctuary</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital,wght@0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       QUANTUM ARCHITECTURE & DESIGN SYSTEM v4.0
+       ========================================================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      user-select: none;
+    }
+
+    :root {
+      --quantum-core: #ff3366;
+      --quantum-deep: #8b0022;
+      --glass-bg: rgba(22, 2, 6, 0.85);
+      --glass-border: rgba(255, 77, 121, 0.5);
+      --text-main: #ffffff;
+      --text-accent: #ff85a2;
+    }
+
+    body {
+      background: #080002;
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      color: var(--text-main);
+      overflow-x: hidden;
+      position: relative;
+      perspective: 1500px;
+    }
+
+    /* Cinematic Neural Shifting Background */
+    .live-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      transition: background 4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Volumetric Ray-Marching Quantum Sweep */
+    .ray-sweep {
+      position: fixed;
+      top: -50%; left: -50%; width: 200%; height: 200%;
+      background: conic-gradient(from 0deg at 50% 50%, rgba(255, 51, 102, 0.06) 0deg, transparent 60deg, rgba(139, 0, 34, 0.12) 120deg, transparent 180deg);
+      pointer-events: none;
+      z-index: 1;
+      animation: rotateRay 35s linear infinite;
+    }
+    @keyframes rotateRay {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .bg-light-spot {
+      position: absolute;
+      width: 1000px; height: 1000px;
+      background: radial-gradient(circle, rgba(255, 51, 102, 0.32) 0%, rgba(139, 0, 34, 0.14) 50%, transparent 80%);
+      border-radius: 50%;
+      top: -350px; left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: 2;
+      animation: pulseLight 9s ease-in-out infinite alternate;
+    }
+    @keyframes pulseLight {
+      0% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+      100% { transform: translateX(-50%) scale(1.25); opacity: 1; }
+    }
+
+    /* Quantum Entanglement Particle Canvas */
+    #particleCanvas {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* State Machine Screen System */
+    .screen {
+      display: none;
+      min-height: 100vh;
+      width: 100%;
+      padding: 40px 20px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 4;
+      opacity: 0;
+      transform: scale(0.95) translateY(20px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .screen.active {
+      display: flex;
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    /* Interface 1: Master Quantum Lock */
+    #lockScreen {
+      background: radial-gradient(circle at center, rgba(45, 6, 15, 0.96) 0%, rgba(10, 0, 2, 0.99) 100%);
+    }
+
+    .lock-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      padding: 60px 45px;
+      border-radius: 38px;
+      text-align: center;
+      backdrop-filter: blur(45px);
+      -webkit-backdrop-filter: blur(45px);
+      box-shadow: 0 45px 100px rgba(0, 0, 0, 0.95), inset 0 0 35px rgba(255, 77, 121, 0.18);
+      width: 100%; max-width: 480px;
+      transform-style: preserve-3d;
+    }
+
+    .lock-card h1 {
+      font-family: 'Cinzel Decorative', serif;
+      color: var(--text-accent);
+      font-size: 2.4rem;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg, #fff 0%, #ff85a2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 35px rgba(255, 133, 162, 0.7);
+    }
+
+    .lock-card p {
+      color: #f7ccd4; font-size: 1.1rem; margin-bottom: 30px;
+      font-family: 'Playfair Display', serif; font-style: italic;
+    }
+
+    .lock-card input {
+      width: 100%; padding: 18px 22px; border-radius: 16px;
+      border: 1px solid rgba(255, 77, 121, 0.6); background: rgba(8, 0, 2, 0.92);
+      color: #fff; font-size: 1.25rem; text-align: center; outline: none; margin-bottom: 25px; letter-spacing: 5px;
+      transition: all 0.3s ease;
+    }
+    .lock-card input:focus {
+      border-color: var(--text-accent);
+      box-shadow: 0 0 30px rgba(255, 51, 102, 0.6), inset 0 0 12px rgba(255, 77, 121, 0.35);
+    }
+
+    .action-btn {
+      width: 100%; padding: 17px; border-radius: 16px; border: none;
+      background: linear-gradient(135deg, #ff3366, #8b0022); color: #ffffff;
+      font-weight: 600; font-size: 1.2rem; cursor: pointer;
+      box-shadow: 0 15px 40px rgba(139, 0, 34, 0.75);
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .action-btn:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(255, 51, 102, 0.7);
+    }
+    .error-text { color: #ff6b8b; font-size: 0.95rem; margin-top: 15px; display: none; }
+
+    /* Interface 2: Sisters Hub Index */
+    #hubScreen { justify-content: flex-start; padding-top: 60px; }
+    .hub-header { text-align: center; margin-bottom: 50px; }
+    .hub-header h2 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      background: linear-gradient(135deg, #fff 0%, #ff85a2 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 40px rgba(255, 133, 162, 0.8); margin-bottom: 14px;
+    }
+    .hub-header p { color: #f7ccd4; font-size: 1.2rem; font-family: 'Playfair Display', serif; font-style: italic; }
+
+    .sisters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 30px; width: 100%; max-width: 1320px; padding-bottom: 80px;
+    }
+
+    .sister-hub-card {
+      background: rgba(28, 4, 9, 0.82);
+      border: 1px solid rgba(255, 77, 121, 0.5);
+      border-radius: 26px; padding: 26px 30px;
+      display: flex; align-items: center; gap: 24px; cursor: pointer;
+      backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), inset 0 0 22px rgba(255, 77, 121, 0.12);
+    }
+    .sister-hub-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      background: rgba(46, 7, 15, 0.96); border-color: var(--text-accent);
+      box-shadow: 0 30px 70px rgba(255, 51, 102, 0.55), inset 0 0 35px rgba(255, 133, 162, 0.35);
+    }
+
+    .square-photo-box {
+      width: 90px; height: 90px; min-width: 90px; border-radius: 20px;
+      background: rgba(10, 0, 2, 0.95); border: 1px dashed rgba(255, 133, 162, 0.8);
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+      transition: border-color 0.3s ease;
+    }
+    .sister-hub-card:hover .square-photo-box { border-color: var(--text-accent); }
+    .square-photo-box img { width: 100%; height: 100%; object-fit: cover; }
+
+    .card-info h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #fff; margin-bottom: 6px;
+    }
+    .card-info span {
+      font-size: 0.85rem; color: var(--text-accent); text-transform: uppercase; letter-spacing: 3px; font-weight: 600;
+    }
+
+    /* Verification Modal */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(25px);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 100; opacity: 0; pointer-events: none; transition: 0.4s ease;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .modal-box {
+      background: linear-gradient(145deg, rgba(40, 6, 14, 0.97), rgba(15, 0, 4, 0.99));
+      border: 2px solid rgba(255, 51, 102, 0.75); padding: 45px; border-radius: 30px;
+      width: 90%; max-width: 440px; text-align: center;
+      box-shadow: 0 40px 90px rgba(0, 0, 0, 0.95); transform: scale(0.85); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .modal-overlay.active .modal-box { transform: scale(1); }
+    .modal-box h3 { font-family: 'Cinzel Decorative', serif; color: var(--text-accent); margin-bottom: 15px; font-size: 1.7rem; }
+    .modal-box p { font-size: 1.05rem; color: #f7ccd4; margin-bottom: 25px; font-family: 'Playfair Display', serif; }
+    .modal-box input {
+      width: 100%; padding: 15px 20px; border-radius: 14px;
+      border: 1px solid rgba(255, 77, 121, 0.6); background: rgba(0, 0, 0, 0.7);
+      color: #fff; font-size: 1.15rem; text-align: center; outline: none; margin-bottom: 20px;
+    }
+    .modal-btns { display: flex; gap: 12px; }
+    .modal-btns button { flex: 1; padding: 14px; border-radius: 12px; border: none; font-weight: 600; cursor: pointer; transition: 0.2s; }
+
+    /* Interface 3: Individual Detail Display */
+    #detailScreen { justify-content: center; }
+    .detail-card {
+      background: rgba(20, 2, 6, 0.98);
+      border: 2px solid rgba(255, 77, 121, 0.95);
+      border-radius: 40px; padding: 65px 50px;
+      max-width: 750px; width: 100%; text-align: center;
+      backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px);
+      box-shadow: 0 60px 130px rgba(0, 0, 0, 0.95), 0 0 75px rgba(255, 51, 102, 0.5), inset 0 0 45px rgba(255, 77, 121, 0.2);
+      animation: detailFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes detailFade {
+      from { transform: translateY(20px) scale(0.96); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .detail-photo-box {
+      width: 150px; height: 150px; margin: 0 auto 26px;
+      border-radius: 26px; background: rgba(12, 0, 3, 0.98);
+      border: 2px solid #ff3366; overflow: hidden; box-shadow: 0 0 55px rgba(255, 51, 102, 0.7);
+    }
+    .detail-photo-box img { width: 100%; height: 100%; object-fit: cover; }
+
+    .detail-card h2 {
+      font-family: 'Cinzel Decorative', serif; color: var(--text-accent); font-size: 2.6rem; margin-bottom: 24px;
+      background: linear-gradient(135deg, #fff 0%, #ff85a2 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .quote-box {
+      background: rgba(255, 77, 121, 0.08); border-left: 4px solid #ff3366;
+      padding: 30px; border-radius: 0 22px 22px 0; margin-bottom: 40px; text-align: left;
+      box-shadow: inset 0 0 22px rgba(255, 77, 121, 0.08);
+    }
+    .quote-box p {
+      font-family: 'Playfair Display', serif; font-style: italic; color: #f7ccd4; font-size: 1.2rem; line-height: 1.95;
+      min-height: 180px;
+    }
+
+    .action-row {
+      display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 15px; flex-wrap: wrap;
+    }
+    .next-btn-wrap {
+      display: flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #ff3366, #8b0022);
+      border: none; padding: 15px 36px; border-radius: 16px; color: #fff; font-weight: 600; font-size: 1.15rem;
+      cursor: pointer; box-shadow: 0 10px 30px rgba(255, 51, 102, 0.5); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .next-btn-wrap:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 35px rgba(255, 51, 102, 0.7); }
+    .pink-heart-icon { font-size: 1.4rem; }
+
+    /* Interface 4: Celebration Screen */
+    #celebrationScreen {
+      justify-content: center; text-align: center;
+      background: radial-gradient(circle, #380612 0%, #0d0103 100%);
+    }
+    .celeb-card {
+      background: rgba(26, 3, 8, 0.95); border: 2px solid #ff3366;
+      padding: 65px 42px; border-radius: 40px; max-width: 720px; width: 100%;
+      box-shadow: 0 0 120px rgba(255, 51, 102, 0.75); backdrop-filter: blur(30px);
+    }
+    .celeb-card h1 {
+      font-family: 'Cinzel Decorative', serif; color: var(--text-accent); font-size: clamp(2.8rem, 5vw, 4.6rem);
+      margin-bottom: 24px; text-shadow: 0 0 45px rgba(255, 133, 162, 0.98);
+    }
+    .celeb-card p {
+      font-family: 'Playfair Display', serif; font-size: 1.45rem; color: #f7ccd4; font-style: italic; margin-bottom: 38px;
+    }
+    .celeb-btns {
+      display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;
+    }
+    .bye-btn {
+      background: transparent; border: 1px solid rgba(255, 77, 121, 0.7);
+      color: var(--text-accent); padding: 15px 32px; border-radius: 16px; font-weight: 500; font-size: 1.15rem; cursor: pointer; transition: 0.3s;
+    }
+    .bye-btn:hover { background: rgba(255, 77, 121, 0.25); color: #fff; transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+
+  <!-- Quantum Shifting Background Containers -->
+  <div class="live-bg" id="liveBgContainer"></div>
+  <div class="ray-sweep"></div>
+  <div class="bg-light-spot"></div>
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Interface 1: Master Quantum Lock -->
+  <div id="lockScreen" class="screen active">
+    <div class="lock-card">
+      <h1>Raksha Bandhan</h1>
+      <p>Enter the secure master key to access the sacred family sanctuary</p>
+      <input type="password" id="masterInput" placeholder="Enter key..." autocomplete="off">
+      <button class="action-btn" onclick="verifyMasterKey()">Unlock Hub</button>
+      <div id="lockError" class="error-text">Incorrect key. Hint: use "didi"</div>
+    </div>
+  </div>
+
+  <!-- Interface 2: Sisters Hub Index -->
+  <div id="hubScreen" class="screen">
+    <div class="hub-header">
+      <h2>Raksha Bandhan 2026</h2>
+      <p>Select any name below and enter your secret password to view your tribute</p>
+    </div>
+    <div class="sisters-grid" id="sistersGrid"></div>
+  </div>
+
+  <!-- Password Verification Modal -->
+  <div class="modal-overlay" id="sisterModal">
+    <div class="modal-box">
+      <h3 id="modalSisterName">Sister Verification</h3>
+      <p id="modalPrompt">Enter your secret password to unlock your page</p>
+      <input type="password" id="sisterPasswordInput" placeholder="Enter password..." autocomplete="off">
+      <div class="modal-btns">
+        <button style="background: rgba(255,255,255,0.1); color:#fff;" onclick="closeSisterModal()">Cancel</button>
+        <button style="background: linear-gradient(135deg, #ff3366, #8b0022); color:#fff;" onclick="verifySisterPassword()">Unlock</button>
+      </div>
+      <div id="modalError" class="error-text">Incorrect password! Try again.</div>
+    </div>
+  </div>
+
+  <!-- Interface 3: Individual Sister Detail Display -->
+  <div id="detailScreen" class="screen">
+    <div class="detail-card">
+      <div class="detail-photo-box" id="detailPhotoContainer">
+        <span style="font-size: 12px; color: var(--text-accent); display: flex; align-items: center; justify-content: center; height: 100%;">Photo</span>
+      </div>
+      <h2 id="detailTitle">Sister Name</h2>
+      <div class="quote-box">
+        <p id="detailQuote"></p>
+      </div>
+      <div class="action-row" id="actionRow" style="display: none;">
+        <button class="next-btn-wrap" onclick="triggerCelebration()">
+          <span>NEXT</span> <span class="pink-heart-icon">💖</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interface 4: Celebration Screen -->
+  <div id="celebrationScreen" class="screen">
+    <div class="celeb-card">
+      <h1 id="celebTitle">HAPPY RAKSHA BANDHAN</h1>
+      <p id="celebSubtitle">May our bond grow stronger with every passing year! ✨🌸</p>
+      <div class="celeb-btns">
+        <button class="action-btn" style="max-width: 200px;" onclick="returnToHub()">Back to Hub</button>
+        <button class="bye-btn" onclick="closeSite()">Bye</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       QUANTUM JS ENGINE & AUDIO SYNTHESIZER
+       ========================================================================== -->
+  <script>
+    const MASTER_KEY = "didi";
+
+    // Web Audio API Ambient Chime Generator
+    let audioCtx = null;
+    function playQuantumChime() {
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(528, audioCtx.currentTime); // Healing frequency
+        osc.frequency.exponentialRampToValueAtTime(1056, audioCtx.currentTime + 0.8);
+        
+        gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.2);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start();
+        osc.stop(audioCtx.currentTime + 1.2);
+      } catch (e) {
+        // Audio context bypassed by browser policy until interaction
+      }
+    }
+
+    const bgPalettes = [
+      "radial-gradient(circle at 30% 30%, #3d0714 0%, #150205 70%, #080002 100%)",
+      "radial-gradient(circle at 70% 40%, #2b081f 0%, #0d0107 70%, #040002 100%)",
+      "radial-gradient(circle at 40% 60%, #360515 0%, #110104 70%, #050001 100%)",
+      "radial-gradient(circle at 50% 50%, #420412 0%, #170105 70%, #070001 100%)",
+      "radial-gradient(circle at 20% 80%, #330310 0%, #0c0103 70%, #030001 100%)"
+    ];
+
+    const sistersData = [
+      {
+        id: "deepa",
+        name: "Deepa Didi",
+        pass: "deepa",
+        essay: "Pranam Didi! 🙏🌸 Jab main peeche mudkar apne bachpan se lekar aaj tak ke safar ko dekhta hoon, toh mujhe ehsaas hota hai ki aapka hona kitna bada aashirwad hai. Main aapse umar mein kaafi chota hoon, isiliye bachpan se hi aapne mujhe ek chote bhai ki tarah har mushkil waqt mein sambhala hai, pyaar diya hai aur sahi raaste par chalna sikhaya hai. Aapki woh daant bhi mere liye kisi seekh se kam nahi thi jo aaj mujhe ek behtar insaan bana rahi hai. Aapka yeh pyaar aur yeh suraksha ka ehsaas mere liye duniya ki sabse keemti cheez hai. Is pyare se tyohar par main bas yahi dua karunga ki aapki zindagi hamesha khushiyon se bhari rahe aur aapke chehre par hamesha aisi hi pyaari muskaan bani rahe. Happy Raksha Bandhan 2026! 💖✨"
+      },
+      {
+        id: "jyoti",
+        name: "Jyoti Didi",
+        pass: "jyoti",
+        essay: "Pranam Didi! ✨💫 Aapka hona hi hamare ghar mein ek alag hi roshni aur khushi le aata hai. Main aapse umar mein kaafi chota hoon, isliye maine hamesha aapko ek guide aur protector ke roop mein dekha hai. Jab bhi main kisi cheez ko lekar pareshan hota hoon, aapki woh samjhane wali baatein aur aapka support mujhe turant hausla de deta hai. Aapne mujhe hamesha bina kisi shart ke pyaar diya hai aur meri har chhoti-chhoti khushi mein mera saath diya hai. Main khuda se bas yahi prarthna karta hoon ki aapko duniya ki saari khushiyan, sehat aur safalta mile kyunki aap is sabse zyada haqdaar hain. Wishing you an amazingly wonderful and blessed Happy Raksha Bandhan! 🌸⭐"
+      },
+      {
+        id: "punam",
+        name: "Punam Didi",
+        pass: "punam",
+        essay: "Pranam Didi! 🌸🌷 Aapka yeh shant aur mamta bhara swabhav hum sab ke liye ek bahut badi taqat hai. Main aapse kaafi chota hoon, aur bachpan se lekar aaj tak maine dekha hai ki kaise aapne hamesha sabka dhyan rakha hai bina kisi shikayat ke. Aapki woh pyaar bhari salaah aur woh apnepan ka ehsaas mere dil ke sabse kareeb hai. Chahe kitni bhi pareshani ho, aapke paas aakar saari tension khatam ho jaati hai. Main chahta hoon ki aapki yeh hansi hamesha barkraar rahe aur aapki zindagi mein kabhi kisi bhi cheez ki kami na ho. May this sacred festival bring immense joy and prosperity to your life. Happy Raksha Bandhan! 🌿💖"
+      },
+      {
+        id: "reeta",
+        name: "Reeta Didi",
+        pass: "reeta",
+        essay: "Pranam Didi! 💫🌺 Aapki yeh mehnat aur sabka dhyan rakhne ki aadat mujhe hamesha bahut inspire karti hai. Main aapse umar mein kaafi chota hoon, lekin mujhe hamesha laga hai ki aapne mujhe kitne pyaar aur dulaar se bada kiya hai. Aapki woh care aur woh apnepan wali baatein mere dil mein hamesha rahengi. Main bhagwan se dua karta hoon ki aapki zindagi ka har din nayi khushiyan aur dher saari safalta lekar aaye. Aap hamesha hasti rahein aur aabad rahein. Wishing you a very warm and joyful Happy Raksha Bandhan! 🌟🌸"
+      },
+      {
+        id: "bharti",
+        name: "Bharti Didi",
+        pass: "bharti",
+        essay: "Pranam Didi! 🌟🌸 Aapke aate hi ghar ka mahol kitna lively aur khushnuma ho jaata hai, yeh toh sabhi jante hain. Main aapse kaafi chota hoon, aur isiliye aapne mujhe hamesha apne chote bhai ki tarah pamper kiya hai aur meri har naadani ko hans kar maaf kiya hai. Aapka yeh cheerful nature aur sabko khush rakhne ka andaz be misaal hai. Main bas yahi chahunga ki aapka yeh gulabi chehra aur yeh mast maula andaz kabhi na badle. Aapko zindagi ki har woh khushi mile jo aap chahti hain. Happy Raksha Bandhan to my wonderful didi! 🌷✨💖"
+      },
+      {
+        id: "lakshmi",
+        name: "Lakshmi Didi",
+        pass: "lakshmi",
+        essay: "Pranam Didi! 👑✨ Aapka yeh unique andaz aur sabko lekar chalne ki khubi mujhe hamesha bahut pasand aayi hai. Main aapse umar mein kaafi chota hoon, par aapne mujhe hamesha ek dost aur chote bhai ki tarah barabar ka pyaar diya hai. Aapka yeh confidence aur glowing energy ghar ko aur bhi khoobsurat bana deti hai. Main is khaas tyohar par dua karta hoon ki aapke saare sapne pure hon aur aapki zindagi mein kabhi koi dukh na aaye. Have a gorgeous and blessed Happy Raksha Bandhan! 🌟🌺💫"
+      },
+      {
+        id: "madhu",
+        name: "Madhu Didi",
+        pass: "2004",
+        essay: "Madhu Didi, shabd shayad kam pad jayenge yeh batane ke liye ki aap mere dil ke kitne kareeb aur kitni khaas ho. 💐✨ Main aapse chota hoon, par aapne mujhe jo apnepan ka ehsaas karwaya hai, woh is duniya mein aur kahin nahi mil sakta. Aapki woh samajhdari, aapki woh roop, aur aapki yeh constant presence meri puri zindagi ka sabse bada sahara hai. Mere har kadam par aapka hona mujhe ek alag hi taqat deta hai. Main bhagwan se bas yahi aashirwad mangta hoon ki aapki zindagi hamesha phoolon ki tarah khilti rahe aur aapko duniya ki saari khushiyan milein. You are my absolute inspiration and my greatest blessing. Stay glorious and happy forever! Happy Raksha Bandhan! 🌹👑💖🌟"
+      },
+      {
+        id: "khushboo",
+        name: "Khushboo Didi",
+        pass: "khushboo",
+        essay: "Pranam Didi! 🌺🌷 Hum dono ki umar mein zyada fark nahi hai, main aapse bas thoda sa hi (2-3 saal) chota hoon, isiliye hamari bonding ekdum dosto jaisi aur bohot khaas hai. Humne kitni saari baatein share ki hain aur ek doosre ke saath kitna waqt bitaya hai. Aapka yeh sweet aur caring nature sabka dil jeet leta hai. Main chahta hoon ki hamara yeh dosti aur bhai-behan ka pyara rishta umar bhar aise hi bana rahe. Is Raksha Bandhan par main aapke liye dher saari khushiyan aur success ki dua karta hoon. Happy Raksha Bandhan! 🌸✨💫"
+      },
+      {
+        id: "kajal",
+        name: "Kajal Didi",
+        pass: "kajal",
+        essay: "Pranam Didi! 🌷💫 Aapke saath toh waqt kaise beet jaata hai pata hi nahi chalta kyunki hum dono ki age mein zyada gap nahi hai, main aapse bas 2 ya 3 saal hi chota hoon. Isiliye hum aapas mein har cheez khulkar share karte hain. Aapki creative baatein aur aapka energetic nature mujhe hamesha motivate karta hai. Main is pyare tyohar par aapko dher saara pyaar bhejta hoon aur dua karta hoon ki aapki har wish puri ho. Have a fantastic and happy Raksha Bandhan! 🌻🌟💖"
+      },
+      {
+        id: "kalpana",
+        name: "Kalpana",
+        pass: "kalpana",
+        essay: "Hey Kalpana! 🌻✨ Humara rishta bada hi pyaara hai kyunki main aapse thoda sa bada hoon, aur maine hamesha aapko ek choti behen ki tarah protect karne ki koshish ki hai. Aapka sharp mind aur aage badhne ka jazba mujhe bahut proud feel karwata hai. Aap apni zindagi mein bohot aage jao, yahi meri sabse badi khwahish hai. Is Raksha Bandhan par main aapko dher saari khushiyan aur aashirwad deta hoon. Khub tarakki karo aur haste raho! Happy Raksha Bandhan! 🌻✨💫"
+      },
+      {
+        id: "rani",
+        name: "Rani",
+        pass: "rani",
+        essay: "Hey Rani! 🌹👑 Main aapse thoda bada hoon, aur aapki yeh pyaari si hansi aur royal charm ghar mein ek alag hi jaan daal deti hai. Ek bade bhai hone ke naate, main hamesha chahta hoon ki aapki zindagi ki har raah aasaan ho aur aapko kabhi koi pareshani na ho. Aap hamesha aise hi khilti rahein aur apne sapne pure karein. Is Raksha Bandhan par mere paas aapke liye dher saari pyaar aur dulaar hai. Happy Raksha Bandhan, stay blessed always! 🌹👑🌟"
+      }
+    ];
+
+    let currentActiveSister = null;
+    let typingTimer = null;
+
+    function verifyMasterKey() {
+      playQuantumChime();
+      const input = document.getElementById('masterInput').value.trim().toLowerCase();
+      const errorEl = document.getElementById('lockError');
+
+      if (input === MASTER_KEY) {
+        document.getElementById('lockScreen').classList.remove('active');
+        document.getElementById('hubScreen').classList.add('active');
+        renderHubGrid();
+      } else {
+        errorEl.style.display = 'block';
+        document.getElementById('masterInput').value = '';
+        document.getElementById('masterInput').focus();
+      }
+    }
+
+    function renderHubGrid() {
+      const grid = document.getElementById('sistersGrid');
+      grid.innerHTML = '';
+
+      sistersData.forEach(sister => {
+        const card = document.createElement('div');
+        card.className = 'sister-hub-card';
+        card.onclick = () => {
+          playQuantumChime();
+          promptSisterPassword(sister);
+        };
+
+        let imageContent = `<span style="font-size: 10px; color: var(--text-accent); text-align:center; font-family: 'Montserrat', sans-serif;">Add Pic</span>`;
+        if (sister.img) {
+          imageContent = `<img src="${sister.img}" alt="${sister.name}">`;
+        }
+
+        card.innerHTML = `
+          <div class="square-photo-box">${imageContent}</div>
+          <div class="card-info">
+            <h3>${sister.name}</h3>
+            <span>Secure Access ✨</span>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function promptSisterPassword(sister) {
+      currentActiveSister = sister;
+      document.getElementById('modalSisterName').innerText = sister.name;
+      document.getElementById('sisterPasswordInput').value = '';
+      document.getElementById('modalError').style.display = 'none';
+      document.getElementById('sisterModal').classList.add('active');
+      document.getElementById('sisterPasswordInput').focus();
+    }
+
+    function closeSisterModal() {
+      playQuantumChime();
+      document.getElementById('sisterModal').classList.remove('active');
+      currentActiveSister = null;
+    }
+
+    function verifySisterPassword() {
+      playQuantumChime();
+      const input = document.getElementById('sisterPasswordInput').value.trim().toLowerCase();
+      const errorEl = document.getElementById('modalError');
+
+      if (currentActiveSister && input === currentActiveSister.pass) {
+        closeSisterModal();
+        openDetailScreen(currentActiveSister);
+      } else {
+        errorEl.style.display = 'block';
+        document.getElementById('sisterPasswordInput').value = '';
+        document.getElementById('sisterPasswordInput').focus();
+      }
+    }
+
+    function openDetailScreen(sister) {
+      document.getElementById('hubScreen').classList.remove('active');
+      document.getElementById('detailScreen').classList.add('active');
+
+      const randomBg = bgPalettes[Math.floor(Math.random() * bgPalettes.length)];
+      document.getElementById('liveBgContainer').style.background = randomBg;
+
+      document.getElementById('detailTitle').innerText = sister.name;
+      
+      const quoteEl = document.getElementById('detailQuote');
+      const actionRow = document.getElementById('actionRow');
+      quoteEl.innerText = "";
+      actionRow.style.display = "none";
+
+      const photoBox = document.getElementById('detailPhotoContainer');
+      if (sister.img) {
+        photoBox.innerHTML = `<img src="${sister.img}" alt="${sister.name}">`;
+      } else {
+        photoBox.innerHTML = `<span style="font-size: 11px; color: var(--text-accent); display: flex; align-items: center; justify-content: center; height: 100%; font-family: 'Montserrat', sans-serif;">Photo</span>`;
+      }
+
+      if (typingTimer) clearTimeout(typingTimer);
+      let charIndex = 0;
+      const textToType = sister.essay;
+
+      function typeWriter() {
+        if (charIndex < textToType.length) {
+          quoteEl.innerText += textToType.charAt(charIndex);
+          charIndex++;
+          typingTimer = setTimeout(typeWriter, 14);
+        } else {
+          actionRow.style.display = "flex";
+        }
+      }
+      typeWriter();
+    }
+
+    function triggerCelebration() {
+      playQuantumChime();
+      if (!currentActiveSister) return;
+      document.getElementById('detailScreen').classList.remove('active');
+      document.getElementById('celebrationScreen').classList.add('active');
+
+      let displayName = currentActiveSister.name;
+      document.getElementById('celebTitle').innerText = `HAPPY RAKSHA BANDHAN, ${displayName.toUpperCase()}!`;
+      document.getElementById('celebSubtitle').innerText = `A special dedication just for you! ✨🌸🌷🌻`;
+
+      launchFlowerShower();
+    }
+
+    function returnToHub() {
+      playQuantumChime();
+      if (typingTimer) clearTimeout(typingTimer);
+      document.getElementById('celebrationScreen').classList.remove('active');
+      document.getElementById('hubScreen').classList.add('active');
+    }
+
+    function closeSite() {
+      playQuantumChime();
+      window.close();
+      window.location.href = "about:blank";
+    }
+
+    document.getElementById('masterInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') verifyMasterKey();
+    });
+
+    document.getElementById('sisterPasswordInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') verifySisterPassword();
+    });
+
+    // Quantum Entanglement Neural Particle Engine
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let showerMode = false;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    for (let i = 0; i < 80; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height + canvas.height,
+        size: Math.random() * 3.8 + 1,
+        speedY: Math.random() * 0.8 + 0.2,
+        speedX: (Math.random() - 0.5) * 0.5,
+        opacity: Math.random() * 0.6 + 0.2,
+        char: ['❤️', '✨', '⭐', '🌸', '🌼', '🌷'][Math.floor(Math.random() * 6)]
+      });
+    }
+
+    function launchFlowerShower() {
+      showerMode = true;
+      for (let i = 0; i < 140; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: -20 - Math.random() * 200,
+          size: Math.random() * 5 + 2,
+          speedY: Math.random() * 4 + 1.5,
+          speedX: (Math.random() - 0.5) * 1.5,
+          opacity: 0.95,
+          char: ['🌼', '🌸', '🌻', '⭐', '✨', '💐', '🌷', '❤️'][Math.floor(Math.random() * 8)]
+        });
+      }
+      setTimeout(() => { showerMode = false; }, 6000);
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Draw quantum entanglement neural lines between particles
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          let dx = particles[i].x - particles[j].x;
+          let dy = particles[i].y - particles[j].y;
+          let dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(255, 51, 102, ${0.15 * (1 - dist / 120)})`;
+            ctx.lineWidth = 0.6;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      particles.forEach((p, index) => {
+        ctx.globalAlpha = p.opacity;
+        ctx.font = `${p.size * 6}px sans-serif`;
+        ctx.fillText(p.char, p.x, p.y);
+
+        p.x += p.speedX;
+
+        if (showerMode) {
+          p.y += p.speedY;
+          if (p.y > canvas.height + 40) {
+            particles.splice(index, 1);
+          }
+        } else {
+          p.y -= p.speedY;
+          if (p.y < -40) {
+            p.y = canvas.height + 40;
+            p.x = Math.random() * canvas.width;
+          }
+        }
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+  </script>
+</body>
+</html>
