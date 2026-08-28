@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To My Dearest Sisters ✨🌙❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Montserrat:wght@300;500;700&family=Parisienne&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-dark-1: #1f0119;
+      --bg-dark-2: #4a0639;
+      --bg-glow: #8e0e64;
+      --pink-neon: #ff1493;
+      --pink-soft: #ffd1dc;
+      --red-heart: #ff2a5f;
+      --gold-spark: #ffe57f;
+      --white-pure: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: radial-gradient(ellipse at center, var(--bg-glow) 0%, var(--bg-dark-2) 50%, var(--bg-dark-1) 100%);
+      min-height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+      padding: 15px 0;
+    }
+
+    #sparkleCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      pointer-events: auto;
+      width: 92%;
+      max-width: 490px;
+      margin: auto;
+    }
+
+    /* Floating Quotes Grid */
+    .quotes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .heart-quote-badge {
+      background: rgba(255, 20, 147, 0.22);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(255, 209, 220, 0.5);
+      border-radius: 20px;
+      padding: 10px 12px;
+      font-size: 0.74rem;
+      text-align: center;
+      line-height: 1.4;
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+      animation: floatBadge 4s ease-in-out infinite alternate;
+    }
+
+    .heart-quote-badge:nth-child(2) {
+      animation-delay: 1.2s;
+    }
+
+    @keyframes floatBadge {
+      0% { transform: translateY(0px) scale(1); }
+      100% { transform: translateY(-6px) scale(1.02); }
+    }
+
+    .glass-card {
+      background: linear-gradient(150deg, rgba(85, 10, 68, 0.94), rgba(42, 3, 34, 0.98));
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 35px;
+      padding: 35px 24px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 45px rgba(255, 20, 147, 0.55);
+      text-align: center;
+      border: 2px solid rgba(255, 182, 193, 0.6);
+      color: var(--white-pure);
+      position: relative;
+      max-height: 88vh;
+      overflow-y: auto;
+      transform-style: preserve-3d;
+      animation: floatCard 4.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatCard {
+      0% { transform: translateY(0px) rotateX(1deg); }
+      100% { transform: translateY(-7px) rotateX(-1deg); }
+    }
+
+    .title-main {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 1.75rem;
+      background: linear-gradient(45deg, #ffd1dc, #ff69b4, #ffe57f, #ff1493);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+      line-height: 1.3;
+      text-shadow: 0 0 16px rgba(255, 105, 180, 0.4);
+    }
+
+    .cursive-text {
+      font-family: 'Parisienne', 'Great Vibes', cursive;
+      font-size: 2.3rem;
+      color: #ffd1dc;
+      margin: 10px 0;
+      text-shadow: 0 0 18px rgba(255, 20, 147, 0.85);
+    }
+
+    .message-body {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.96);
+      margin: 16px 0;
+      font-weight: 300;
+    }
+
+    .highlight-quote {
+      font-style: italic;
+      color: #ffe57f;
+      display: block;
+      margin: 12px 0;
+      font-size: 0.92rem;
+      text-shadow: 0 0 10px rgba(255, 229, 127, 0.4);
+    }
+
+    .card-photo {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 209, 220, 0.95);
+      box-shadow: 0 0 32px rgba(255, 20, 147, 0.8), 0 0 14px rgba(255, 229, 127, 0.7);
+      margin: 14px auto;
+      display: block;
+      animation: pulseGlow 3s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 18px rgba(255, 20, 147, 0.5); }
+      100% { box-shadow: 0 0 35px rgba(255, 20, 147, 0.95), 0 0 20px rgba(255, 229, 127, 0.9); }
+    }
+
+    .btn-main {
+      background: linear-gradient(135deg, #ff1493, #ff2a5f, #9b51e0);
+      color: #ffffff;
+      border: none;
+      outline: none;
+      padding: 15px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 10px 28px rgba(255, 20, 147, 0.65);
+      margin-top: 14px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
+    }
+
+    .btn-main:active {
+      transform: scale(0.96);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.16);
+      border: 1.5px solid rgba(255, 209, 220, 0.6);
+      color: #ffd1dc;
+      padding: 11px 24px;
+      font-size: 0.9rem;
+      border-radius: 50px;
+      cursor: pointer;
+      margin: 8px 5px;
+      transition: background 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="sparkleCanvas"></canvas>
+
+  <audio id="bgMusic1" preload="auto">
+    <source src="song1.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="bgMusic2" preload="auto">
+    <source src="song2.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <div class="quotes-grid">
+      <div class="heart-quote-badge">
+        💖 <em>"Not having conversations doesn't mean we're apart..."</em>
+      </div>
+      <div class="heart-quote-badge">
+        🌸 <em>"You'll are always very close to my hearts ✨️✨️"</em>
+      </div>
+    </div>
+
+    <div id="interface1" class="glass-card">
+      <h1 class="title-main">To My Dearest Sisters ✨</h1>
+      <div class="cursive-text">A Sanctuary of Pure Love 🌙</div>
+      <span class="highlight-quote">"Distance only tests the roots of a bond that was built to last forever."</span>
+      <p class="message-body">
+        Even when life keeps us busy and the days pass without long chats, my heart beats with the warmth of your presence. Tap below to step into a little world made just for you!
+      </p>
+      <button class="btn-main" onclick="goToInterface2()">Open Our Special Space ✨️🌙❤️</button>
+    </div>
+
+    <div id="interface2" class="glass-card hidden">
+      <div class="cursive-text">Timeless Connections 🌸</div>
+      <span class="highlight-quote">"Quiet moments never fade the colors of our shared memories. ❤️"</span>
+      <p class="message-body">
+        No matter where life takes us or how quiet things get between our daily routines, you are never out of my thoughts. Your quiet prayers, your silent support, and your unconditional love mean everything to me.
+      </p>
+      <button class="btn-main" onclick="goToInterface3()">Next Surprise ✨</button>
+    </div>
+
+    <div id="interface3" class="glass-card hidden">
+      <div class="cursive-text">Forever Special 💖</div>
+      
+      <img src="photo.jpg" alt="My Sisters" class="card-photo" onerror="this.style.display='none'" />
+
+      <span class="highlight-quote">"True sisters share an invisible thread that never snaps."</span>
+      <p class="message-body">
+        You are the pieces of my soul walking around in this world. Keep blooming, shining your gorgeous light, and knowing that my heart is always cheering for you from the sidelines.
+      </p>
+      <button class="btn-main" onclick="openFinalScreen()">Open Final Message 🌙</button>
+    </div>
+
+    <div id="finalScreen" class="glass-card hidden">
+      <h1 class="title-main">Always Close To My Heart ✨🌙</h1>
+      <div class="cursive-text">Protected By Love Always 💖</div>
+      <span class="highlight-quote">"Not having conversations doesn't mean we're apart; you'll are always very close to my hearts ✨️✨️"</span>
+      <p class="message-body">
+        Wishing you all endless happiness, unshakeable peace, and all the success in the world. Happy Raksha Bandhan to my wonderful, irreplaceable sisters!
+      </p>
+      <button class="btn-secondary" onclick="restartJourney()">Replay ↺</button>
+    </div>
+  </div>
+
+  <script>
+    const music1 = document.getElementById('bgMusic1');
+    const music2 = document.getElementById('bgMusic2');
+
+    // Exact Timestamps (in seconds)
+    const song1Start = 163; // 2:43
+    const song1End = 181;   // 3:01
+    const song2Start = 90;   // 1:30
+
+    let isSong1Playing = false;
+
+    function goToInterface2() {
+      if (!isSong1Playing && music1) {
+        music1.currentTime = song1Start;
+        music1.play().catch(e => console.log('Song 1 playback:', e));
+        isSong1Playing = true;
+
+        music1.ontimeupdate = () => {
+          if (music1.currentTime >= song1End) {
+            music1.currentTime = song1Start;
+          }
+        };
+      }
+      document.getElementById('interface1').classList.add('hidden');
+      document.getElementById('interface2').classList.remove('hidden');
+    }
+
+    function goToInterface3() {
+      // Song 1 continues without interruption
+      document.getElementById('interface2').classList.add('hidden');
+      document.getElementById('interface3').classList.remove('hidden');
+    }
+
+    function openFinalScreen() {
+      if (music1) {
+        music1.pause();
+        music1.ontimeupdate = null;
+        isSong1Playing = false;
+      }
+      if (music2) {
+        music2.currentTime = song2Start;
+        music2.play().catch(e => console.log('Song 2 playback:', e));
+      }
+      document.getElementById('interface3').classList.add('hidden');
+      document.getElementById('finalScreen').classList.remove('hidden');
+    }
+
+    function restartJourney() {
+      if (music2) music2.pause();
+      if (music1) {
+        music1.currentTime = song1Start;
+        music1.play().catch(e => console.log('Replay playback:', e));
+        isSong1Playing = true;
+      }
+      document.getElementById('finalScreen').classList.add('hidden');
+      document.getElementById('interface1').classList.remove('hidden');
+    }
+
+    // Canvas Background Engine
+    const canvas = document.getElementById('sparkleCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // 16 3D Fluttering Butterflies
+    const butterflyHues = [330, 195, 280];
+
+    class Butterfly {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = canvas.height + 20 + Math.random() * 80;
+        this.size = 11 + Math.random() * 8;
+        this.vx = (Math.random() - 0.5) * 1.5;
+        this.vy = -(1.1 + Math.random() * 1.3);
+        this.wingAngle = Math.random() * Math.PI * 2;
+        this.wingSpeed = 0.16 + Math.random() * 0.12;
+        this.hue = butterflyHues[Math.floor(Math.random() * butterflyHues.length)];
+        this.sparkleTimer = 0;
+      }
+
+      update() {
+        this.x += this.vx + Math.sin(this.y * 0.02) * 0.85;
+        this.y += this.vy;
+        this.wingAngle += this.wingSpeed;
+
+        this.sparkleTimer++;
+        if (this.sparkleTimer % 6 === 0 && particles.length < 65) {
+          particles.push(new Sparkle(this.x, this.y, `hsl(${this.hue}, 100%, 75%)`));
+        }
+
+        if (this.y < -50 || this.x < -50 || this.x > canvas.width + 50) {
+          this.reset();
+        }
+      }
+
+      draw() {
+        const wingScale = Math.abs(Math.sin(this.wingAngle));
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.fillStyle = `hsl(${this.hue}, 95%, 72%)`;
+        ctx.shadowColor = `hsl(${this.hue}, 100%, 70%)`;
+        ctx.shadowBlur = 12;
+
+        // Left Wing
+        ctx.beginPath();
+        ctx.ellipse(-this.size * 0.6 * wingScale, 0, this.size * 0.8 * wingScale, this.size * 0.5, -0.2, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Right Wing
+        ctx.beginPath();
+        ctx.ellipse(this.size * 0.6 * wingScale, 0, this.size * 0.8 * wingScale, this.size * 0.5, 0.2, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Body
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.ellipse(0, 0, 1.4, this.size * 0.45, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.restore();
+      }
+    }
+
+    // Floating Glowing Pink & Red Hearts
+    class Heart {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = canvas.height + 20 + Math.random() * 50;
+        this.size = 6 + Math.random() * 8;
+        this.vy = -(0.6 + Math.random() * 0.8);
+        this.vx = (Math.random() - 0.5) * 0.6;
+        this.color = Math.random() > 0.4 ? '#ff1493' : '#ff2a5f';
+        this.alpha = 0.5 + Math.random() * 0.5;
+      }
+
+      update() {
+        this.y += this.vy;
+        this.x += this.vx + Math.sin(this.y * 0.03) * 0.4;
+        if (this.y < -30) this.reset();
+      }
+
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.globalAlpha = this.alpha;
+        ctx.fillStyle = this.color;
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = 8;
+        
+        ctx.beginPath();
+        const topCurveHeight = this.size * 0.3;
+        ctx.moveTo(0, topCurveHeight);
+        ctx.bezierCurveTo(0, 0, -this.size / 2, 0, -this.size / 2, topCurveHeight);
+        ctx.bezierCurveTo(-this.size / 2, (this.size + topCurveHeight) / 2, 0, this.size, 0, this.size);
+        ctx.bezierCurveTo(0, this.size, this.size / 2, (this.size + topCurveHeight) / 2, this.size / 2, topCurveHeight);
+        ctx.bezierCurveTo(this.size / 2, 0, 0, 0, 0, topCurveHeight);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    // Sparkles
+    class Sparkle {
+      constructor(x, y, color = '#ffd1dc') {
+        this.x = x || Math.random() * canvas.width;
+        this.y = y || Math.random() * canvas.height;
+        this.size = Math.random() * 2.4 + 0.8;
+        this.alpha = 1;
+        this.fade = 0.014 + Math.random() * 0.02;
+        this.color = color;
+      }
+
+      update() {
+        this.alpha -= this.fade;
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
+        ctx.fillStyle = this.color;
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    const butterflies = Array.from({ length: 16 }, () => new Butterfly());
+    const hearts = Array.from({ length: 14 }, () => new Heart());
+    const particles = [];
+
+    // 70 Ambient Twinkling Stars
+    const ambientStars = Array.from({ length: 70 }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      size: Math.random() * 2.2 + 0.6,
+      alpha: Math.random() * Math.PI * 2,
+      speed: 0.012 + Math.random() * 0.015,
+      isGold: Math.random() > 0.65
+    }));
+
+    // Throttled 45 FPS Animation Loop
+    let lastFrameTime = 0;
+    const targetInterval = 1000 / 45;
+
+    function animate(currentTime) {
+      requestAnimationFrame(animate);
+
+      const delta = currentTime - lastFrameTime;
+      if (delta < targetInterval) return;
+      lastFrameTime = currentTime - (delta % targetInterval);
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Ambient Twinkling Stars
+      ambientStars.forEach(star => {
+        star.alpha += star.speed;
+        const currentAlpha = (Math.sin(star.alpha) + 1) / 2;
+        ctx.fillStyle = star.isGold 
+          ? `rgba(255, 229, 127, ${currentAlpha * 0.85})` 
+          : `rgba(255, 182, 193, ${currentAlpha * 0.8})`;
+        ctx.shadowColor = star.isGold ? '#ffe57f' : '#ff69b4';
+        ctx.shadowBlur = 6;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // Floating Hearts
+      hearts.forEach(h => {
+        h.update();
+        h.draw();
+      });
+
+      // Sparkles
+      for (let i = particles.length - 1; i >= 0; i--) {
+        particles[i].update();
+        particles[i].draw();
+        if (particles[i].alpha <= 0) {
+          particles.splice(i, 1);
+        }
+      }
+
+      // Butterflies
+      butterflies.forEach(b => {
+        b.update();
+        b.draw();
+      });
+    }
+
+    requestAnimationFrame(animate);
+  </script>
+</body>
+</html>
